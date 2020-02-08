@@ -1,0 +1,79 @@
+---
+title: "hw2"
+output: html_document
+
+author: "Jaydon Cobb, github: JaydonLCobb"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#1 
+```{r}
+cel <- c(-4.44444, -9.44444)
+cel
+```
+#2
+```{r}
+vec200 <- rep(c(3, 1), 200)
+vec200
+```
+# 3
+```{r}
+numPerfect <- 0;
+for(i in 1:2001){
+  for(j in 1:i){
+    if(j*j == i){
+      numPerfect <- numPerfect+1;
+    }
+  }
+}
+print(numPerfect)
+```
+# 4
+```{r}
+ggplot2 = library(ggplot2);
+ggplot2
+mpg
+```
+```{r}
+mpg_new <- mpg[order(mpg$hwy, decreasing = TRUE),]  
+top_3 <- head(mpg_new, 3)
+print(top_3)
+```
+# 5
+```{r}
+mods <- subset(mpg, mpg$class == 'compact')
+numCompact = nrow(mods)
+print(numCompact)
+```
+# 6
+```{r}
+plot(mpg$hwy,mpg$cty,main = "Highway Mileage vs. City Mileage", xlab= "Highway Mileage", ylab = "City Mileage")
+```
+#7
+```{r}
+year_1999 <- subset(mpg, year == 1999)
+year_2008 <- subset(mpg, year == 2008)
+print(year_1999)
+print(year_2008)
+plot(year_1999$hwy,year_1999$cty,main = "Highway Mileage vs. City Mileage in 1999", xlab= "Highway Mileage", ylab = "City Mileage")
+plot(year_2008$hwy,year_2008$cty,main = "Highway Mileage vs. City Mileage in 2008", xlab= "Highway Mileage", ylab = "City Mileage")
+boxplot(year_1999$hwy, main = "Highway Mileage in 1999",ylab = "Mileage")
+boxplot(year_2008$hwy, main = "Highway Mileage in 2008",ylab = "Mileage")
+boxplot(year_1999$cty, main = "City Mileage in 1999",ylab = "Mileage")
+boxplot(year_2008$cty, main = "City Mileage in 2008",ylab = "Mileage")
+hwy_1999 <- summary(year_1999$hwy)
+hwy_2008 <- summary(year_2008$hwy)
+print(hwy_1999)
+print(hwy_2008)
+cty_1999 <- summary(year_1999$cty)
+cty_2008 <- summary(year_2008$cty)
+print(cty_1999)
+print(cty_2008)
+```
+
+
